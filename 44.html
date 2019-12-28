@@ -18,7 +18,7 @@
             <img src="graphics/release/44.png" style="max-width: 300px">
         </td>
         <td style="vertical-align: middle">
-            Initially released on Dic 2, 2019.
+            Initially released on Dec 2, 2019.
             <br>Copyright 2018-2019, Martín del Río.
             <br>
             <br>Codename: <i>Friendly Falcarius</i>
@@ -45,7 +45,7 @@
     <p>
     This is a list of things that have changed in every release of this LDPL version:
     </p>
-    <h3>Release 4.4.3</h3>
+    <h3>Release 4.4.3 <small>(Released Dec 21, 2019)</small></h3>
     <ul>
         <li><small><code style="color:blue">[Fix]</code></small>
             Fixed nested multicontainer accesses that were <a href="https://github.com/Lartu/ldpl/issues/166">not working the way
@@ -53,7 +53,7 @@
         <li><small><code style="color:blue">[Fix]</code></small>
              Fixed the modulo statement as it was losing precision when working with negative values.
     </ul>
-    <h3>Release 4.4.2</h3>
+    <h3>Release 4.4.2 <small>(Released Dec 18, 2019)</small></h3>
     <ul>
         <li><small><code style="color:green">[Add]</code></small>
             Added an <code>(i386)</code> note to the version information of the 32 bit release of LDPL so it
@@ -61,14 +61,14 @@
         <li><small><code style="color:orange">[Chg]</code></small>
             Moved the definitions of the methods of the LDPL data type classes from <i>ldpl-types.h</i> into the LDPL compiler.
     </ul>
-    <h3>Release 4.4.1</h3>
+    <h3>Release 4.4.1 <small>(Released Dec 13, 2019)</small></h3>
     <ul>
         <li><small><code style="color:blue">[Fix]</code></small>
             The compiler wasn't identifying <code>&lt;number&gt;:&lt;index&gt;</code> as invalid code and tried to compile it, triggering C++ compiler errors.
         <li><small><code style="color:orange">[Chg]</code></small>
             The LDPL man page has been updated to the latest version of the documentation.
     </ul>
-    <h3>Release 4.4</h3>
+    <h3>Release 4.4 <small>(Released Dec 2, 2019)</h3>
     <ul>
         <li><small><code style="color:green">[Add]</code></small>
             Added an <a href="https://docs.ldpl-lang.org/data/#multicontainers">alternative <code>&lt;container&gt; of &lt;type&gt;</code> syntax</a> for multicontainer declaration.
@@ -95,23 +95,23 @@
         <li><strike>Some nested multicontainer accesses are <a href="https://github.com/Lartu/ldpl/issues/166">not working as
         they should</a>. The compiler seems to be mistaking invalid accesses as valid and
         valid ones as invalid.</strike>
-        <br><small><i>(Found Dic 21, 2019 - <span style="color:blue">Fixed in 4.4.3</span>)</i></small>
+        <br><small><i>(Found Dec 21, 2019 - <span style="color:blue">Fixed in 4.4.3</span>)</i></small>
         
         <li><strike>The modulo operator loses precision when working with negative values.</strike>
-        <br><small><i>(Found Dic 19, 2019 - <span style="color:blue">Fixed in 4.4.3</span>)</i></small>
+        <br><small><i>(Found Dec 19, 2019 - <span style="color:blue">Fixed in 4.4.3</span>)</i></small>
     
         <li><strike>The way the compiler defines the methods of the data types used in LDPL in LDPL 4.4.2 may lead to undefined behaviour problems in future releases
         of the language, should those definitions be modified. While this is not a problem at the moment, the use of <code>ldpl-types.h</code> will be
         deprecated in future releases of the language in favour of a compiler-centered declaration of those types.</strike>
-        <br><small><i>(Found Dic 18, 2019 - <span style="color:blue">Fixed in 4.4.2</span>)</i></small>
+        <br><small><i>(Found Dec 18, 2019 - <span style="color:blue">Fixed in 4.4.2</span>)</i></small>
         
         <li><strike>The compiler isn't identifying <code>&lt;number&gt;:&lt;index&gt;</code>
         as invalid code (it is, numbers don't have subindexes) and tries to
         compile it, triggering C++ compiler errors.
         <i>Workaround:</i> do not write <code>&lt;number&gt;:&lt;index&gt;</code>,
         as it is invalid code.</strike>
-        <br><small><i>(Found Dic 5, 2019 - <span style="color:blue">Fixed in 4.4.1</span>)</i></small>
-        <!--<br><small><i>(Found Dic 5, 2019 - <span style="color:red">Not fixed</span>)</i></small>-->
+        <br><small><i>(Found Dec 5, 2019 - <span style="color:blue">Fixed in 4.4.1</span>)</i></small>
+        <!--<br><small><i>(Found Dec 5, 2019 - <span style="color:red">Not fixed</span>)</i></small>-->
     </ul>
     
     <h2>Platform Support</h2>
