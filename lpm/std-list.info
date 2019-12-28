@@ -1,0 +1,7 @@
+Package Name: List Briefcase from the LDPL Standard Library
+Short Name: std-list
+Author: Martín del Río
+Version: 1.0.0
+Website: https://github.com/Lartu/ldpl-std
+Info: contains many useful statements for working with lists.
+Part of the LDPL Standard Library.

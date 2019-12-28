@@ -1,0 +1,7 @@
+Package Name: OS Briefcase from the LDPL Standard Library
+Short Name: std-os
+Author: Martín del Río
+Version: 1.0.0
+Website: https://github.com/Lartu/ldpl-std
+Info: This library includes functions for dealing with the operating
+system. Part of the LDPL Standard Library.

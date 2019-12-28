@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rev="made" href="mailto:martin@ldpl-lang.org" />
+    <link rel="icon" type="image/png" href="graphics/favicon.png" />
+    <meta name="DC.title" content="ldpl-lang.org" />
+    <link rel="stylesheet" type="text/css" href="ldpl.css" />
+    <title>LDPL: Code Examples</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body id="text-body">
+
+<h2><a href="index.html" id="main-link">LDPL</a> Code Examples</h2>
+
+<hr>
+
+<p>
+The LDPL Community has written a number of LDPL code examples to help beginners
+learn the language by example. These examples are divided in three levels by
+(apparent) difficulty: beginner, intermediate and advanced. Feel free to browse
+them in any order you like and reuse any parts of their code.</p>
+
+<p>If you'd like to contribute with an example, please check the
+<a href="contribute.html">LDPL Contributors Guide</a> and then submit
+a pull request to the LDPL Repository.</p>
+
+<p>If you find an error within an example please submit an issue to the LDPL Repository.</p>
+
+<h2>Beginner Examples</h2>
+
+<p>
+<ul>
+<li><strong><a href="#helloworld">Hello World</a></strong>: displays <em>Hello World!</em>.</li>
+<li><strong><a href="#loop_counter">Loop Counter</a></strong>: counts from 1 to 1.000.000.</li>
+<li><strong><a href="#oddornot">Odd or Not</a></strong>: asks the user for a number and displays if its odd or even.</li>
+<li><strong><a href="#absolutevalue">Absolute Value</a></strong>: asks the user for a number and then prints out its absolute value.</li>
+<li><strong><a href="#leapyear">Leap Year</a></strong>: asks the user for a year and displays if its a leap year or not.</li>
+<li><strong><a href="#disancount">Disan Count</a></strong>: asks the user for a number and then executes a <a href="https://esolangs.org/wiki/Disan_Count" rel="nofollow">Disan Count</a>.</li>
+<li><strong><a href="#strcmp-demo">String Comparison Demo</a></strong>: compares strings.</li>
+<li><strong><a href="#arguments">Argument Print</a></strong>: prints all command line arguments to the screen.</li>
+<li><strong><a href="#99bottles">99 Bottles of Beer</a></strong>: prints out the song 99 Bottles of Beer.</li>
+</ul>
+</p>
+
+<h2>Intermediate Examples</h2>
+
+<p>
+<ul>
+<li><strong><a href="#fibonacci">Fibonacci Numbers</a></strong>: prints the first 30 <a href="https://en.wikipedia.org/wiki/Fibonacci_number" rel="nofollow">fibonacci numbers</a>.</li>
+<li><strong><a href="#euler">Euler Problem</a></strong>: prints the sum of all the multiples of 3 or 5 below 1000.</li>
+<li><strong><a href="#sqrt">Square Root</a></strong>: calculates the square root of a number using the <a href="https://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Babylonian_method" rel="nofollow">Babylonian Method</a>.</li>
+<li><strong><a href="#explode">Text Explode</a></strong>: asks the user to enter some text and then splits it into a list of words without using the built in <code>split</code> statement.</li>
+</ul>
+</p>
+
+<h2>Advanced Examples</h2>
+<p>
+<ul>
+<li><strong><a href="#quine">Quine</a></strong>: a <a href="https://esolangs.org/wiki/Quine" rel="nofollow">quine</a> that prints its own source code.</li>
+<li><strong><a href="#floyd-warshall">Floyd-Warshall</a></strong>: an implementation of the <a href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm" rel="nofollow">Floyd-Warshall</a> shortest path algorithm.</li>
+<li><strong><a href="#brainfuck">Brainfuck Interpreter</a></strong>: a <a href="https://en.wikipedia.org/wiki/Brainfuck" rel="nofollow">Brainfuck</a> interpreter.</li>
+<li><strong><a href="#bellman-ford">Bellman-Ford</a></strong> an implementation of the <a href="https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm" rel="nofollow">Bellman-Ford</a> shortest path algorithm.</li>
+</ul>
+
+<p>
+These examples can also be found at the <a href="https://github.com/Lartu/ldpl/tree/master/examples" >/examples</a> folder of the LDPL Repository.</p>
+</p>
+
+<hr>
+
+<h2 id="helloworld">Hello World</h2>
+<p>
+<strong>Description:</strong> displays <em>Hello World!</em>.
+<br>
+<strong>File:</strong> <a href="https://github.com/Lartu/ldpl/blob/master/examples/helloworld.ldpl">helloworld.ldpl</a>.
+</p>
+<pre>
+procedure:
+display "Hello World!" crlf
+</pre>
+
+<h2 id="loop_counter">Loop Counter</h2>
+<p>
+<strong>Description:</strong> counts from 1 to 1.000.000.
+<br>
+<strong>File:</strong> <a href="https://github.com/Lartu/ldpl/blob/master/examples/loop_counter.ldpl">loop_counter.ldpl</a>.
+</p>
+<pre>
+data:
+    n is number
+    
+procedure:
+    for n from 0 to 1000000 step 1 do
+        display n lf
+    repeat
+</pre>
+
+<h2 id="oddornot">Odd or Not</h2>
+<p>
+<strong>Description:</strong> asks the user for a number and displays if its odd or even.
+<br>
+<strong>File:</strong> <a href="https://github.com/Lartu/ldpl/blob/master/examples/oddornot.ldpl">oddornot.ldpl</a>.
+</p>
+<pre>
+data:
+    num is number
+    mod is number
+  
+procedure:
+    display "Enter a number: "
+    accept num
+    modulo num by 2 in mod
+    if mod is equal to 0 then
+        display num " is even." lf
+    else
+        display num " is odd." lf
+    end if
+</pre>
+
+<h2 id="absolutevalue">Absolute Value</h2>
+<p>
+<strong>Description:</strong> asks the user for a number and then prints out its absolute value.
+<br>
+<strong>File:</strong> <a href="https://github.com/Lartu/ldpl/blob/master/examples/absolutevalue.ldpl">absolutevalue.ldpl</a>.
+</p>
+<pre>
+data:
+    num is number
+  
+procedure:
+    display "Enter a number: "
+    accept num
+    if num is greater than or equal to 0 then
+        display num lf
+    else
+        in num solve num * -1
+        display num lf
+    end if
+</pre>
+
+<h2 id="leapyear">Leap Year</h2>
+<p>
+<strong>Description:</strong> asks the user for a year and displays if its a leap year or not.
+<br>
+<strong>File:</strong> <a href="https://github.com/Lartu/ldpl/blob/master/examples/leapyear.ldpl">leapyear.ldpl</a>.
+</p>
+<pre>
+data: 
+    year is number
+    divBy4 is number
+    divBy100 is number
+  
+procedure: 
+    display "Enter a year: "
+    accept year
+    modulo year by 4 in divBy4
+    modulo year by 100 in divBy100
+    if divBy4 is not equal to 0 then
+        display year " is a common year." lf
+    else if divBy100 is not equal to 0 then
+        display year " is a leap year!" lf
+    else if divBy4 is not equal to 0 or divBy100 is not equal to 0 then
+        display year " is a common year." lf
+    else
+        display year " is a leap year!" lf
+    end if
+</pre>
+
+<h2 id="disancount">Disan Count</h2>
+<p>
+<strong>Description:</strong> asks the user for a number and then executes a <a href="https://esolangs.org/wiki/Disan_Count" rel="nofollow">Disan Count</a>.
+<br>
+<strong>File:</strong> <a href="https://github.com/Lartu/ldpl/blob/master/examples/disancount.ldpl">disancount.ldpl</a>.
+</p>
+<pre>
+data:
+    n is number  # Number to count down from
+    mod is number  # Result of the modulo operations
+
+procedure:
+    # Get number to count down from
+    display "Enter a number: "
+    accept n
+    
+    while n is greater than or equal to 0 do
+        modulo n by 2 in mod
+        if mod is equal to 0 then
+            display n crlf
+        end if
+        in n solve n - 1
+    repeat
+</pre>
+
+<h2 id="strcmp-demo">String Comparison Demo</h2>
+<p>
+<strong>Description:</strong> compares strings.
+<br>
+<strong>File:</strong> <a href="https://github.com/Lartu/ldpl/blob/master/examples/strcmp-demo.ldpl">strcmp-demo.ldpl</a>.
+</p>
+<pre>
+procedure:
+    if "aaa" is equal to "aaa" then
+        display "aaa == aaa" crlf
+    end if
+
+    if "aaa" is not equal to "bbb" then
+        display "aaa != bbb" crlf
+    end if
+
+    if "aaa" is less than "bbb" then
+        display "aaa < bbb" crlf
+    end if
+
+    if "ccc" is greater than "bbb" then
+        display "ccc > bbb" crlf
+    end if
+
+    # if two strings have the same characters, the longer string is greater
+    if "aaaa" is greater than or equal to "aaa" then
+        display "aaaa >= aaa" crlf
+    end if
+
+    if "bbb" is less than or equal to "bbbb" then
+        display "bbb <= bbbb" crlf
+    end if
+</pre>
+
+<h2 id="arguments">Argument Print</h2>
+<p>
+<strong>Description:</strong> prints all command line arguments to the screen.
+<br>
+<strong>File:</strong> <a href="https://github.com/Lartu/ldpl/blob/master/examples/arguments.ldpl">arguments.ldpl</a>.
+</p>
+<pre>
+data:
+    argument is text
+
+procedure:
+    display "You passed these arguments to the program:" crlf
+    for each argument in argv do
+        display "- " argument crlf
+    repeat
+</pre>
+
+<h2 id="99bottles">99 Bottles of Beer</h2>
+<p>
+<strong>Description:</strong> prints out the song 99 Bottles of Beer.
+<br>
+<strong>File:</strong> <a href="https://github.com/Lartu/ldpl/blob/master/examples/99bottles.ldpl">99bottles.ldpl</a>.
+</p>
+<pre>
+data:
+    bottles-in-the-wall is number
+    plural is text
+
+procedure:
+    store 99 in bottles-in-the-wall
+
+    sub-procedure check-plural
+        if bottles-in-the-wall is not equal to 1 then
+            store "s" in plural
+        else
+            store "" in plural
+        end if
+    end sub-procedure
+
+    while bottles-in-the-wall is greater than 0 do
+        call sub-procedure check-plural
+        display bottles-in-the-wall " bottle" plural " of beer on the wall," crlf
+        display bottles-in-the-wall " bottle" plural " of beer." crlf
+        display "Take one down, pass it around," crlf
+        in bottles-in-the-wall solve bottles-in-the-wall - 1
+        call sub-procedure check-plural
+        if bottles-in-the-wall is greater than 0 then
+            display bottles-in-the-wall " bottle" plural " of beer on the wall." crlf crlf
+        else
+            display "No bottles of beer on the wall." crlf
+        end if
+    repeat
+</pre>
+
+<h2 id="fibonacci">Fibonacci Numbers</h2>
+<p>
+<strong>Description:</strong> prints the first 30 <a href="https://en.wikipedia.org/wiki/Fibonacci_number" rel="nofollow">fibonacci numbers</a>.
+<br>
+<strong>File:</strong> <a href="https://github.com/Lartu/ldpl/blob/master/examples/fibonacci.ldpl">fibonacci.ldpl</a>.
+</p>
+<pre>
+data:
+    a is number
+    b is number
+    swap is number
+    length is number
+
+procedure:
+    store 1 in a
+    store 1 in b
+    display a crlf b crlf
+
+    store 30 in length
+
+    while length is greater than 0 do
+        store b in swap
+        in b solve a + b
+        store swap in a
+        display b crlf
+        in length solve length - 1
+    repeat
+</pre>
+
+<h2 id="euler">Euler Problem</h2>
+<p>
+<strong>Description:</strong> prints the sum of all the multiples of 3 or 5 below 1000.
+<br>
+<strong>File:</strong> <a href="https://github.com/Lartu/ldpl/blob/master/examples/euler.ldpl">euler.ldpl</a>.
+</p>
+<pre>
+data:
+    result is number
+    i is number
+    remainder3 is number
+    remainder5 is number
+    remainder is number
+    
+procedure:
+    sub-procedure is-multiple-of
+        modulo i by 3 in remainder3
+        modulo i by 5 in remainder5
+        in remainder solve remainder3 * remainder5
+        if remainder is equal to 0 then
+            in result solve result + i
+        end if
+    end sub-procedure
+    
+    store 0 in i
+    store 0 in result
+    while i is less than 1000 do
+        call sub-procedure is-multiple-of
+        in i solve i + 1
+    repeat
+    
+    display result crlf
+</pre>
+
+<h2 id="sqrt">Square Root</h2>
+<p>
+<strong>Description:</strong> calculates the square root of a number using the <a href="https://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Babylonian_method" rel="nofollow">Babylonian Method</a>.
+<br>
+<strong>File:</strong> <a href="https://github.com/Lartu/ldpl/blob/master/examples/sqrt.ldpl">sqrt.ldpl</a>.
+</p>
+<pre>
+data:
+    # Square-root sub-procedure
+    sqrt/radicand is number
+    sqrt/result is number
+    sqrt/aux is number
+    sqrt/last-value is number
+
+procedure:
+    # Ask for a number
+    display "Enter a number: "
+    accept sqrt/radicand
+
+    # Declare square root subprocedure
+    # Calculates the square root of a radicand using the babylonian method
+    # Input parameter:
+    # - sqrt/radicand: the number to be square-rooted (preserved)
+    # Output parameter:
+    # - sqrt/result: the square root of the given number
+    sub-procedure square-root
+        if sqrt/radicand is equal to 0 then
+            store 0 in sqrt/result
+            return
+        end if
+        store 0 in sqrt/last-value
+        store 1 in sqrt/result
+        while 1 is equal to 1 do
+            in sqrt/aux solve sqrt/radicand / sqrt/result
+            in sqrt/result solve sqrt/aux + sqrt/result
+            in sqrt/result solve sqrt/result / 2
+            if sqrt/result is not equal to sqrt/last-value then
+                store sqrt/result in sqrt/last-value
+            else
+                break
+            end if
+        repeat
+    end sub-procedure
+
+    # Calculate square root of the entered number
+    call sub-procedure square-root
+    display "sqrt(" sqrt/radicand ") = " sqrt/result crlf
+</pre>
+<p>
+Note that this example doesn't use parameters in its sub-procedures. This is because
+this example was written for older versions of the LDPL programming language
+that didn't support parameter passing.
+</p>
+
+<h2 id="explode">Text Explode</h2>
+<p>
+<strong>Description:</strong> asks the user to enter some text and then splits it into a list of words without using the built in <code>split</code> statement.
+<br>
+<strong>File:</strong> <a href="https://github.com/Lartu/ldpl/blob/master/examples/explode.ldpl">explode.ldpl</a>.
+</p>
+<pre>
+data:
+    explode/words is text vector
+    explode/index is number
+    explode/string is text
+    explode/length is number
+    explode/stringlength is number
+    explode/current-token is text
+    explode/char is text
+    explode/separator is text
+    i is number
+    
+procedure:
+    # Ask for a sentence
+    display "Enter a sentence: "
+    accept explode/string
+
+    # Declare explode Subprocedure
+    # Splits a text into a text vector by a certain delimiter
+    # Input parameters:
+    # - explode/string: the string to explode (destroyed)
+    # - explode/separator: the character used to separate the string (preserved)
+    # Output parameters:
+    # - explode/words: vector of splitted words
+    # - explode/length: length of explode/words
+    sub-procedure explode
+        join explode/string and explode/separator in explode/string
+        get length of explode/string in explode/stringlength
+        store 0 in explode/index
+        store 0 in explode/length
+        store "" in explode/current-token
+        while explode/index is less than explode/stringlength do
+            get character at explode/index from explode/string in explode/char
+            if explode/char is equal to explode/separator then
+                store explode/current-token in explode/words:explode/length
+                in explode/length solve explode/length + 1
+                store "" in explode/current-token
+            else
+                join explode/current-token and explode/char in explode/current-token
+            end if
+            in explode/index solve explode/index + 1
+        repeat
+        in explode/length solve explode/length - 1
+    end sub-procedure
+
+    # Separate the entered string
+    store " " in explode/separator
+    call sub-procedure explode
+    while i is less than or equal to explode/length do
+        display explode/words:i crlf
+        in i solve i + 1
+    repeat
+</pre>
+<p>
+Note that this example doesn't use parameters in its sub-procedures. This is because
+this example was written for older versions of the LDPL programming language
+that didn't support parameter passing.
+</p>
+
+<h2 id="quine">Quine</h2>
+<p>
+<strong>Description:</strong> a <a href="https://esolangs.org/wiki/Quine" rel="nofollow">quine</a> that prints its own source code.
+<br>
+<strong>File:</strong> <a href="https://github.com/Lartu/ldpl/blob/master/examples/quine.ldpl">quine.ldpl</a>.
+</p>
+<pre>
+data:
+    a is number vector
+    c is text
+    n is number
+    i is number
+    j is number
+procedure:
+
+    sub-procedure showu
+        store 0 in i
+        while i is less than n do
+            display "    store "
+            display a:i
+            display " in "
+            display " a:"
+            display i crlf
+            in i solve i + 1
+        repeat
+        display "    store "
+        display n
+        display " in n" crlf
+    end sub-procedure
+
+    sub-procedure show
+        store 0 in j
+        while j is less than n do
+            if a:j is equal to 42 then
+                call sub-procedure showu
+            else
+                get ascii character a:j in c
+                display c
+            end-if
+            in j solve j + 1
+        repeat
+    end sub-procedure
+
+    store 10 in    a:0
+    store 68 in    a:1
+    store 65 in    a:2
+    store 84 in    a:3
+    store 65 in    a:4
+    store 58 in    a:5
+    store 10 in    a:6
+    store 32 in    a:7
+    store 32 in    a:8
+    store 65 in    a:9
+    store 32 in    a:10
+    store 73 in    a:11
+    store 83 in    a:12
+    store 32 in    a:13
+    store 78 in    a:14
+    store 85 in    a:15
+    store 77 in    a:16
+    store 66 in    a:17
+    store 69 in    a:18
+    store 82 in    a:19
+    store 32 in    a:20
+    store 86 in    a:21
+    store 69 in    a:22
+    store 67 in    a:23
+    store 84 in    a:24
+    store 79 in    a:25
+    store 82 in    a:26
+    store 10 in    a:27
+    store 32 in    a:28
+    store 32 in    a:29
+    store 67 in    a:30
+    store 32 in    a:31
+    store 73 in    a:32
+    store 83 in    a:33
+    store 32 in    a:34
+    store 84 in    a:35
+    store 69 in    a:36
+    store 88 in    a:37
+    store 84 in    a:38
+    store 10 in    a:39
+    store 32 in    a:40
+    store 32 in    a:41
+    store 78 in    a:42
+    store 32 in    a:43
+    store 73 in    a:44
+    store 83 in    a:45
+    store 32 in    a:46
+    store 78 in    a:47
+    store 85 in    a:48
+    store 77 in    a:49
+    store 66 in    a:50
+    store 69 in    a:51
+    store 82 in    a:52
+    store 10 in    a:53
+    store 32 in    a:54
+    store 32 in    a:55
+    store 73 in    a:56
+    store 32 in    a:57
+    store 73 in    a:58
+    store 83 in    a:59
+    store 32 in    a:60
+    store 78 in    a:61
+    store 85 in    a:62
+    store 77 in    a:63
+    store 66 in    a:64
+    store 69 in    a:65
+    store 82 in    a:66
+    store 10 in    a:67
+    store 32 in    a:68
+    store 32 in    a:69
+    store 74 in    a:70
+    store 32 in    a:71
+    store 73 in    a:72
+    store 83 in    a:73
+    store 32 in    a:74
+    store 78 in    a:75
+    store 85 in    a:76
+    store 77 in    a:77
+    store 66 in    a:78
+    store 69 in    a:79
+    store 82 in    a:80
+    store 10 in    a:81
+    store 80 in    a:82
+    store 82 in    a:83
+    store 79 in    a:84
+    store 67 in    a:85
+    store 69 in    a:86
+    store 68 in    a:87
+    store 85 in    a:88
+    store 82 in    a:89
+    store 69 in    a:90
+    store 58 in    a:91
+    store 10 in    a:92
+    store 10 in    a:93
+    store 32 in    a:94
+    store 32 in    a:95
+    store 83 in    a:96
+    store 85 in    a:97
+    store 66 in    a:98
+    store 45 in    a:99
+    store 80 in    a:100
+    store 82 in    a:101
+    store 79 in    a:102
+    store 67 in    a:103
+    store 69 in    a:104
+    store 68 in    a:105
+    store 85 in    a:106
+    store 82 in    a:107
+    store 69 in    a:108
+    store 32 in    a:109
+    store 83 in    a:110
+    store 72 in    a:111
+    store 79 in    a:112
+    store 87 in    a:113
+    store 85 in    a:114
+    store 10 in    a:115
+    store 32 in    a:116
+    store 32 in    a:117
+    store 32 in    a:118
+    store 32 in    a:119
+    store 83 in    a:120
+    store 84 in    a:121
+    store 79 in    a:122
+    store 82 in    a:123
+    store 69 in    a:124
+    store 32 in    a:125
+    store 48 in    a:126
+    store 32 in    a:127
+    store 73 in    a:128
+    store 78 in    a:129
+    store 32 in    a:130
+    store 73 in    a:131
+    store 10 in    a:132
+    store 32 in    a:133
+    store 32 in    a:134
+    store 32 in    a:135
+    store 32 in    a:136
+    store 87 in    a:137
+    store 72 in    a:138
+    store 73 in    a:139
+    store 76 in    a:140
+    store 69 in    a:141
+    store 32 in    a:142
+    store 73 in    a:143
+    store 32 in    a:144
+    store 73 in    a:145
+    store 83 in    a:146
+    store 32 in    a:147
+    store 76 in    a:148
+    store 69 in    a:149
+    store 83 in    a:150
+    store 83 in    a:151
+    store 32 in    a:152
+    store 84 in    a:153
+    store 72 in    a:154
+    store 65 in    a:155
+    store 78 in    a:156
+    store 32 in    a:157
+    store 78 in    a:158
+    store 32 in    a:159
+    store 68 in    a:160
+    store 79 in    a:161
+    store 10 in    a:162
+    store 32 in    a:163
+    store 32 in    a:164
+    store 32 in    a:165
+    store 32 in    a:166
+    store 32 in    a:167
+    store 32 in    a:168
+    store 32 in    a:169
+    store 32 in    a:170
+    store 68 in    a:171
+    store 73 in    a:172
+    store 83 in    a:173
+    store 80 in    a:174
+    store 76 in    a:175
+    store 65 in    a:176
+    store 89 in    a:177
+    store 32 in    a:178
+    store 34 in    a:179
+    store 32 in    a:180
+    store 32 in    a:181
+    store 83 in    a:182
+    store 84 in    a:183
+    store 79 in    a:184
+    store 82 in    a:185
+    store 69 in    a:186
+    store 32 in    a:187
+    store 34 in    a:188
+    store 10 in    a:189
+    store 32 in    a:190
+    store 32 in    a:191
+    store 32 in    a:192
+    store 32 in    a:193
+    store 32 in    a:194
+    store 32 in    a:195
+    store 32 in    a:196
+    store 32 in    a:197
+    store 68 in    a:198
+    store 73 in    a:199
+    store 83 in    a:200
+    store 80 in    a:201
+    store 76 in    a:202
+    store 65 in    a:203
+    store 89 in    a:204
+    store 32 in    a:205
+    store 65 in    a:206
+    store 58 in    a:207
+    store 73 in    a:208
+    store 10 in    a:209
+    store 32 in    a:210
+    store 32 in    a:211
+    store 32 in    a:212
+    store 32 in    a:213
+    store 32 in    a:214
+    store 32 in    a:215
+    store 32 in    a:216
+    store 32 in    a:217
+    store 68 in    a:218
+    store 73 in    a:219
+    store 83 in    a:220
+    store 80 in    a:221
+    store 76 in    a:222
+    store 65 in    a:223
+    store 89 in    a:224
+    store 32 in    a:225
+    store 34 in    a:226
+    store 32 in    a:227
+    store 73 in    a:228
+    store 78 in    a:229
+    store 32 in    a:230
+    store 34 in    a:231
+    store 10 in    a:232
+    store 32 in    a:233
+    store 32 in    a:234
+    store 32 in    a:235
+    store 32 in    a:236
+    store 32 in    a:237
+    store 32 in    a:238
+    store 32 in    a:239
+    store 32 in    a:240
+    store 68 in    a:241
+    store 73 in    a:242
+    store 83 in    a:243
+    store 80 in    a:244
+    store 76 in    a:245
+    store 65 in    a:246
+    store 89 in    a:247
+    store 32 in    a:248
+    store 34 in    a:249
+    store 32 in    a:250
+    store 65 in    a:251
+    store 58 in    a:252
+    store 34 in    a:253
+    store 10 in    a:254
+    store 32 in    a:255
+    store 32 in    a:256
+    store 32 in    a:257
+    store 32 in    a:258
+    store 32 in    a:259
+    store 32 in    a:260
+    store 32 in    a:261
+    store 32 in    a:262
+    store 68 in    a:263
+    store 73 in    a:264
+    store 83 in    a:265
+    store 80 in    a:266
+    store 76 in    a:267
+    store 65 in    a:268
+    store 89 in    a:269
+    store 32 in    a:270
+    store 73 in    a:271
+    store 32 in    a:272
+    store 67 in    a:273
+    store 82 in    a:274
+    store 76 in    a:275
+    store 70 in    a:276
+    store 10 in    a:277
+    store 32 in    a:278
+    store 32 in    a:279
+    store 32 in    a:280
+    store 32 in    a:281
+    store 32 in    a:282
+    store 32 in    a:283
+    store 32 in    a:284
+    store 32 in    a:285
+    store 73 in    a:286
+    store 78 in    a:287
+    store 32 in    a:288
+    store 73 in    a:289
+    store 32 in    a:290
+    store 83 in    a:291
+    store 79 in    a:292
+    store 76 in    a:293
+    store 86 in    a:294
+    store 69 in    a:295
+    store 32 in    a:296
+    store 73 in    a:297
+    store 32 in    a:298
+    store 43 in    a:299
+    store 32 in    a:300
+    store 49 in    a:301
+    store 10 in    a:302
+    store 32 in    a:303
+    store 32 in    a:304
+    store 32 in    a:305
+    store 32 in    a:306
+    store 82 in    a:307
+    store 69 in    a:308
+    store 80 in    a:309
+    store 69 in    a:310
+    store 65 in    a:311
+    store 84 in    a:312
+    store 10 in    a:313
+    store 32 in    a:314
+    store 32 in    a:315
+    store 32 in    a:316
+    store 32 in    a:317
+    store 68 in    a:318
+    store 73 in    a:319
+    store 83 in    a:320
+    store 80 in    a:321
+    store 76 in    a:322
+    store 65 in    a:323
+    store 89 in    a:324
+    store 32 in    a:325
+    store 34 in    a:326
+    store 32 in    a:327
+    store 32 in    a:328
+    store 83 in    a:329
+    store 84 in    a:330
+    store 79 in    a:331
+    store 82 in    a:332
+    store 69 in    a:333
+    store 32 in    a:334
+    store 34 in    a:335
+    store 10 in    a:336
+    store 32 in    a:337
+    store 32 in    a:338
+    store 32 in    a:339
+    store 32 in    a:340
+    store 68 in    a:341
+    store 73 in    a:342
+    store 83 in    a:343
+    store 80 in    a:344
+    store 76 in    a:345
+    store 65 in    a:346
+    store 89 in    a:347
+    store 32 in    a:348
+    store 78 in    a:349
+    store 10 in    a:350
+    store 32 in    a:351
+    store 32 in    a:352
+    store 32 in    a:353
+    store 32 in    a:354
+    store 68 in    a:355
+    store 73 in    a:356
+    store 83 in    a:357
+    store 80 in    a:358
+    store 76 in    a:359
+    store 65 in    a:360
+    store 89 in    a:361
+    store 32 in    a:362
+    store 34 in    a:363
+    store 32 in    a:364
+    store 73 in    a:365
+    store 78 in    a:366
+    store 32 in    a:367
+    store 78 in    a:368
+    store 34 in    a:369
+    store 32 in    a:370
+    store 67 in    a:371
+    store 82 in    a:372
+    store 76 in    a:373
+    store 70 in    a:374
+    store 10 in    a:375
+    store 32 in    a:376
+    store 32 in    a:377
+    store 69 in    a:378
+    store 78 in    a:379
+    store 68 in    a:380
+    store 32 in    a:381
+    store 83 in    a:382
+    store 85 in    a:383
+    store 66 in    a:384
+    store 45 in    a:385
+    store 80 in    a:386
+    store 82 in    a:387
+    store 79 in    a:388
+    store 67 in    a:389
+    store 69 in    a:390
+    store 68 in    a:391
+    store 85 in    a:392
+    store 82 in    a:393
+    store 69 in    a:394
+    store 10 in    a:395
+    store 10 in    a:396
+    store 32 in    a:397
+    store 32 in    a:398
+    store 83 in    a:399
+    store 85 in    a:400
+    store 66 in    a:401
+    store 45 in    a:402
+    store 80 in    a:403
+    store 82 in    a:404
+    store 79 in    a:405
+    store 67 in    a:406
+    store 69 in    a:407
+    store 68 in    a:408
+    store 85 in    a:409
+    store 82 in    a:410
+    store 69 in    a:411
+    store 32 in    a:412
+    store 83 in    a:413
+    store 72 in    a:414
+    store 79 in    a:415
+    store 87 in    a:416
+    store 10 in    a:417
+    store 32 in    a:418
+    store 32 in    a:419
+    store 32 in    a:420
+    store 32 in    a:421
+    store 83 in    a:422
+    store 84 in    a:423
+    store 79 in    a:424
+    store 82 in    a:425
+    store 69 in    a:426
+    store 32 in    a:427
+    store 48 in    a:428
+    store 32 in    a:429
+    store 73 in    a:430
+    store 78 in    a:431
+    store 32 in    a:432
+    store 74 in    a:433
+    store 10 in    a:434
+    store 32 in    a:435
+    store 32 in    a:436
+    store 32 in    a:437
+    store 32 in    a:438
+    store 87 in    a:439
+    store 72 in    a:440
+    store 73 in    a:441
+    store 76 in    a:442
+    store 69 in    a:443
+    store 32 in    a:444
+    store 74 in    a:445
+    store 32 in    a:446
+    store 73 in    a:447
+    store 83 in    a:448
+    store 32 in    a:449
+    store 76 in    a:450
+    store 69 in    a:451
+    store 83 in    a:452
+    store 83 in    a:453
+    store 32 in    a:454
+    store 84 in    a:455
+    store 72 in    a:456
+    store 65 in    a:457
+    store 78 in    a:458
+    store 32 in    a:459
+    store 78 in    a:460
+    store 32 in    a:461
+    store 68 in    a:462
+    store 79 in    a:463
+    store 10 in    a:464
+    store 32 in    a:465
+    store 32 in    a:466
+    store 32 in    a:467
+    store 32 in    a:468
+    store 32 in    a:469
+    store 32 in    a:470
+    store 32 in    a:471
+    store 32 in    a:472
+    store 73 in    a:473
+    store 70 in    a:474
+    store 32 in    a:475
+    store 65 in    a:476
+    store 58 in    a:477
+    store 74 in    a:478
+    store 32 in    a:479
+    store 73 in    a:480
+    store 83 in    a:481
+    store 32 in    a:482
+    store 69 in    a:483
+    store 81 in    a:484
+    store 85 in    a:485
+    store 65 in    a:486
+    store 76 in    a:487
+    store 32 in    a:488
+    store 84 in    a:489
+    store 79 in    a:490
+    store 32 in    a:491
+    store 52 in    a:492
+    store 50 in    a:493
+    store 32 in    a:494
+    store 84 in    a:495
+    store 72 in    a:496
+    store 69 in    a:497
+    store 78 in    a:498
+    store 10 in    a:499
+    store 32 in    a:500
+    store 32 in    a:501
+    store 32 in    a:502
+    store 32 in    a:503
+    store 32 in    a:504
+    store 32 in    a:505
+    store 32 in    a:506
+    store 32 in    a:507
+    store 32 in    a:508
+    store 32 in    a:509
+    store 67 in    a:510
+    store 65 in    a:511
+    store 76 in    a:512
+    store 76 in    a:513
+    store 32 in    a:514
+    store 83 in    a:515
+    store 85 in    a:516
+    store 66 in    a:517
+    store 45 in    a:518
+    store 80 in    a:519
+    store 82 in    a:520
+    store 79 in    a:521
+    store 67 in    a:522
+    store 69 in    a:523
+    store 68 in    a:524
+    store 85 in    a:525
+    store 82 in    a:526
+    store 69 in    a:527
+    store 32 in    a:528
+    store 83 in    a:529
+    store 72 in    a:530
+    store 79 in    a:531
+    store 87 in    a:532
+    store 85 in    a:533
+    store 10 in    a:534
+    store 32 in    a:535
+    store 32 in    a:536
+    store 32 in    a:537
+    store 32 in    a:538
+    store 32 in    a:539
+    store 32 in    a:540
+    store 32 in    a:541
+    store 32 in    a:542
+    store 69 in    a:543
+    store 76 in    a:544
+    store 83 in    a:545
+    store 69 in    a:546
+    store 10 in    a:547
+    store 32 in    a:548
+    store 32 in    a:549
+    store 32 in    a:550
+    store 32 in    a:551
+    store 32 in    a:552
+    store 32 in    a:553
+    store 32 in    a:554
+    store 32 in    a:555
+    store 32 in    a:556
+    store 32 in    a:557
+    store 71 in    a:558
+    store 69 in    a:559
+    store 84 in    a:560
+    store 32 in    a:561
+    store 65 in    a:562
+    store 83 in    a:563
+    store 67 in    a:564
+    store 73 in    a:565
+    store 73 in    a:566
+    store 32 in    a:567
+    store 67 in    a:568
+    store 72 in    a:569
+    store 65 in    a:570
+    store 82 in    a:571
+    store 65 in    a:572
+    store 67 in    a:573
+    store 84 in    a:574
+    store 69 in    a:575
+    store 82 in    a:576
+    store 32 in    a:577
+    store 65 in    a:578
+    store 58 in    a:579
+    store 74 in    a:580
+    store 32 in    a:581
+    store 73 in    a:582
+    store 78 in    a:583
+    store 32 in    a:584
+    store 67 in    a:585
+    store 10 in    a:586
+    store 32 in    a:587
+    store 32 in    a:588
+    store 32 in    a:589
+    store 32 in    a:590
+    store 32 in    a:591
+    store 32 in    a:592
+    store 32 in    a:593
+    store 32 in    a:594
+    store 32 in    a:595
+    store 32 in    a:596
+    store 68 in    a:597
+    store 73 in    a:598
+    store 83 in    a:599
+    store 80 in    a:600
+    store 76 in    a:601
+    store 65 in    a:602
+    store 89 in    a:603
+    store 32 in    a:604
+    store 67 in    a:605
+    store 10 in    a:606
+    store 32 in    a:607
+    store 32 in    a:608
+    store 32 in    a:609
+    store 32 in    a:610
+    store 32 in    a:611
+    store 32 in    a:612
+    store 32 in    a:613
+    store 32 in    a:614
+    store 69 in    a:615
+    store 78 in    a:616
+    store 68 in    a:617
+    store 45 in    a:618
+    store 73 in    a:619
+    store 70 in    a:620
+    store 10 in    a:621
+    store 32 in    a:622
+    store 32 in    a:623
+    store 32 in    a:624
+    store 32 in    a:625
+    store 32 in    a:626
+    store 32 in    a:627
+    store 32 in    a:628
+    store 32 in    a:629
+    store 73 in    a:630
+    store 78 in    a:631
+    store 32 in    a:632
+    store 74 in    a:633
+    store 32 in    a:634
+    store 83 in    a:635
+    store 79 in    a:636
+    store 76 in    a:637
+    store 86 in    a:638
+    store 69 in    a:639
+    store 32 in    a:640
+    store 74 in    a:641
+    store 32 in    a:642
+    store 43 in    a:643
+    store 32 in    a:644
+    store 49 in    a:645
+    store 10 in    a:646
+    store 32 in    a:647
+    store 32 in    a:648
+    store 32 in    a:649
+    store 32 in    a:650
+    store 82 in    a:651
+    store 69 in    a:652
+    store 80 in    a:653
+    store 69 in    a:654
+    store 65 in    a:655
+    store 84 in    a:656
+    store 10 in    a:657
+    store 32 in    a:658
+    store 32 in    a:659
+    store 69 in    a:660
+    store 78 in    a:661
+    store 68 in    a:662
+    store 32 in    a:663
+    store 83 in    a:664
+    store 85 in    a:665
+    store 66 in    a:666
+    store 45 in    a:667
+    store 80 in    a:668
+    store 82 in    a:669
+    store 79 in    a:670
+    store 67 in    a:671
+    store 69 in    a:672
+    store 68 in    a:673
+    store 85 in    a:674
+    store 82 in    a:675
+    store 69 in    a:676
+    store 10 in    a:677
+    store 10 in    a:678
+    store 42 in    a:679
+    store 10 in    a:680
+    store 32 in    a:681
+    store 32 in    a:682
+    store 67 in    a:683
+    store 65 in    a:684
+    store 76 in    a:685
+    store 76 in    a:686
+    store 32 in    a:687
+    store 83 in    a:688
+    store 85 in    a:689
+    store 66 in    a:690
+    store 45 in    a:691
+    store 80 in    a:692
+    store 82 in    a:693
+    store 79 in    a:694
+    store 67 in    a:695
+    store 69 in    a:696
+    store 68 in    a:697
+    store 85 in    a:698
+    store 82 in    a:699
+    store 69 in    a:700
+    store 32 in    a:701
+    store 83 in    a:702
+    store 72 in    a:703
+    store 79 in    a:704
+    store 87 in    a:705
+    store 10 in    a:706
+    store 10 in    a:707
+    store 708 in n
+
+    call sub-procedure show
+</pre>
+
+<h2 id="floyd-warshall">Floyd-Warshall</h2>
+<p>
+<strong>Description:</strong> an implementation of the <a href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm" rel="nofollow">Floyd-Warshall</a> shortest path algorithm.
+<br>
+<strong>File:</strong> <a href="https://github.com/Lartu/ldpl/blob/master/examples/floyd-warshall.ldpl">floyd-warshall.ldpl</a>.
+</p>
+<pre>
+data:
+    ∞ is number                   # Infinity value (not really infinity)
+    nodeCount   is number         # Number of nodes in the graph
+    distances   is number list    # Number matrix that contains the distance from node i to node j
+    k is number
+    i is number
+    j is number
+    distanceIKJ is number
+    IJ is number
+    IK is number
+    KJ is number
+
+procedure:
+    # Set the value of "infinity" to something big
+    store 99999 in ∞
+
+    # Set number of nodes in graph
+    store 4 in nodeCount
+
+    # Create distances matrix
+    push  0 to distances # 0->0                | 0 1 2 3
+    push  3 to distances # 0->1               -+--------
+    push  ∞ to distances # 0->2               0| 0 3 ∞ 3
+    push  3 to distances # 0->3               1| 2 0 2 2
+    push  2 to distances # 1->0               2|-2 ∞ 0 1
+    push  0 to distances # 1->1               3| ∞ 4 4 0
+    push  2 to distances # 1->2
+    push  2 to distances # 1->3               ↑↑↑↑↑↑↑↑↑↑
+    push -2 to distances # 2->0               This is the matrix we are making.
+    push  ∞ to distances # 2->1               We use a list to store it, like this:
+    push  0 to distances # 2->2               [0, 3, ∞, 3, 2, 0, 2, 2, -2, ∞, 0, 1, ∞, 4, 4, 0]
+    push  1 to distances # 2->3
+    push  ∞ to distances # 3->0               The value [i][j], i being the rows and j the columns
+    push  4 to distances # 3->1               stores the length of the shortest known path from i to j.
+    push  4 to distances # 3->2
+    push  0 to distances # 3->3
+
+    # --- Invariant -------------------------------------------------
+    # When the k-th iteration is over, our distances matrix stores
+    # in the position (i, j) the length of the shortest path from i
+    # to j using only vertices contained in the set {0 .. k}. This
+    # means that in the second iteration (k = 1), the position (i, j)
+    # will hold the length of the shortest path from i to j that uses
+    # only nodes 0 and 1.
+    # ---------------------------------------------------------------
+
+    store 0 in k
+    while k is less than nodeCount do
+        store 0 in i
+        while i is less than nodeCount do
+            store 0 in j
+            while j is less than nodeCount do
+                in IJ solve j + (i * nodeCount)
+                in IK solve k + (i * nodeCount)
+                in KJ solve j + (k * nodeCount)
+                in distanceIKJ solve distances:IK + distances:KJ
+                # If the length of the path i -> k -> j
+                # is shorter than the length of i -> j...
+                if distanceIKJ is less than distances:IJ then
+                    # ...then replace the shortest distance that we've recorded
+                    # between these two nodes for the one that we've just found.
+                    store distanceIKJ in distances:IJ
+                end if
+                in j solve j + 1
+            repeat
+            in i solve i + 1
+        repeat
+        in k solve k + 1
+    repeat
+
+    # --- Negative cycles ----------------------------------------------
+    # While the algorithm asumes that no negative cycles are to be found
+    # in the graph, we can detect whether the graph has negative cycles
+    # or not by executing the loop above one more time and inspecting
+    # the diagonal of the distances matrix: the presence of a negative
+    # number indicates that the graph contains at least one negative
+    # cycle.
+    # ------------------------------------------------------------------
+
+    # Print the result:
+    store 0 in i
+    while i is less than nodeCount do
+        store 0 in j
+        while j is less than nodeCount do
+            in IJ solve j + (i * nodeCount)
+            if distances:IJ is greater than or equal to 0 then
+                display " "
+            end if
+            display distances:IJ " "
+            in j solve j + 1
+        repeat
+        display crlf
+        in i solve i + 1
+    repeat
+</pre>
+
+<h2 id="brainfuck">Brainfuck Interpreter</h2>
+<p>
+<strong>Description:</strong> a <a href="https://en.wikipedia.org/wiki/Brainfuck" rel="nofollow">Brainfuck</a> interpreter.
+<br>
+<strong>File:</strong> <a href="https://github.com/Lartu/ldpl/blob/master/examples/brainfuck.ldpl">brainfuck.ldpl</a>.
+</p>
+<pre>
+data:
+    argc is number                  # Argument count
+    source-file is text             # Brainfuck source code
+    source-length is number         # Length of Brainfuck Source File
+    current-char is text            # Current character in source
+    ip is number                    # Instruction Pointer
+    tape is number vector           # Brainfuck Tape
+    pointer is number               # Brainfuck Tape Pointer
+    temp-text is text               # Auxiliar text variable
+    i is number                     # Auxiliar iteration variable
+    open-[]-found is number         # Number of open []s found
+
+procedure:
+    # Check if we received a filename
+    get length of argv in argc
+    if argc is less than 1 then
+        display "No file to execute passed!" crlf "Usage: brainfuck-bin <filename>" crlf
+        exit
+    end if
+
+    # Load brainfuck source file
+    load file argv:0 in source-file
+    get length of source-file in source-length
+    display "Source loaded." crlf
+    display "Source length: " source-length crlf
+
+    # Execute
+    while ip is less than source-length do
+        get character at ip from source-file in current-char
+        
+        if current-char is equal to "+" then
+            in tape:pointer solve 1 + tape:pointer
+
+        else if current-char is equal to "-" then
+            in tape:pointer solve tape:pointer - 1
+
+        else if current-char is equal to ">" then
+            in pointer solve 1 + pointer
+
+        else if current-char is equal to "<" then
+            in pointer solve pointer - 1
+
+        else if current-char is equal to "." then
+            get ascii character tape:pointer in temp-text
+            display temp-text
+
+        else if current-char is equal to "," then
+            accept tape:pointer
+
+        else if current-char is equal to "[" then
+            if tape:pointer is equal to 0 then
+                store 1 in open-[]-found
+                while open-[]-found is greater than 0 do
+                    in ip solve 1 + ip
+                    get character at ip from source-file in temp-text
+                    if temp-text is equal to "[" then
+                        in open-[]-found solve 1 + open-[]-found
+                    else if temp-text is equal to "]" then
+                        in open-[]-found solve open-[]-found - 1
+                    end if
+                repeat
+            end if
+
+        else if current-char is equal to "]" then
+            if tape:pointer is not equal to 0 then
+                store 1 in open-[]-found
+                while open-[]-found is greater than 0 do
+                    in ip solve ip - 1
+                    get character at ip from source-file in temp-text
+                    if temp-text is equal to "]" then
+                        in open-[]-found solve 1 + open-[]-found
+                    else if temp-text is equal to "[" then
+                        in open-[]-found solve open-[]-found - 1
+                    end if
+                repeat
+            end if
+        end if
+        
+        # Otherwise character is ignored as per spec
+        in ip solve 1 + ip
+    repeat
+</pre>
+
+<h2 id="bellman-ford">Bellman-Ford</h2>
+<p>
+<strong>Description:</strong> an implementation of the <a href="https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm" rel="nofollow">Bellman-Ford</a> shortest path algorithm.
+<br>
+<strong>File:</strong> <a href="https://github.com/Lartu/ldpl/blob/master/examples/bellman-ford.ldpl">bellman-ford.ldpl</a>.
+</p>
+<pre>
+data:
+    ∞ is number                 # Infinity value (not really infinity)
+    nodeCount    is number      # Number of nodes in the graph
+    edgeCount    is number      # Number of edges in the graph
+    edgesStart   is number list # List of the starting nodes of each edge in the graph
+    edgesEnd     is number list # List of the destination nodes of each edge in the graph
+    edgesWeight  is number list # List of the weight of each edge in the graph
+    startingNode is number      # The starting node for our algorithm
+    distances    is number list # List that holds the minimum distance from i to the starting node
+    i is number
+    j is number
+    newDistance  is number
+
+procedure:
+    # Set the value of "infinity" to something big
+    store 99999 in ∞
+
+    # Set number of nodes in graph
+    store 6 in nodeCount
+
+    # Initialize each index of the distances list to infinity
+    while j is less than nodeCount do
+        push ∞ to distances
+        in j solve j + 1
+    repeat
+
+    # Set distance from starting node to itself to 0
+    store 0 in startingNode
+    store 0 in distances:startingNode
+
+    # Set graph edges
+    push  0 to edgesStart    # l(0 -> 1) = 4
+    push  1 to edgesEnd
+    push  4 to edgesWeight
+    push  0 to edgesStart    # l(0 -> 2) = 7
+    push  2 to edgesEnd
+    push  7 to edgesWeight
+    push  0 to edgesStart    # l(0 -> 5) = 3
+    push  5 to edgesEnd
+    push  3 to edgesWeight
+    push  1 to edgesStart    # l(1 -> 2) = 3
+    push  2 to edgesEnd
+    push  3 to edgesWeight
+    push  1 to edgesStart    # l(1 -> 4) = 1
+    push  4 to edgesEnd
+    push  1 to edgesWeight
+    push  1 to edgesStart    # l(1 -> 5) = -2
+    push  5 to edgesEnd
+    push -2 to edgesWeight
+    push  2 to edgesStart    # l(2 -> 3) = 1
+    push  3 to edgesEnd
+    push  1 to edgesWeight
+    push  2 to edgesStart    # l(2 -> 4) = 1
+    push  4 to edgesEnd
+    push  1 to edgesWeight
+    push  4 to edgesStart    # l(4 -> 3) = 4
+    push  3 to edgesEnd
+    push  4 to edgesWeight
+    push  5 to edgesStart    # l(5 -> 4) = 3
+    push  4 to edgesEnd
+    push  3 to edgesWeight
+
+    # Store the number of edges in our graph
+    get length of edgesWeight in edgeCount
+
+    # --- Invariant -------------------------------------------------
+    # When the k-th iteration is over, our distances list holds the
+    # length of the shortest path from the starting node to every
+    # other path in the graph of length less than or equal to k.
+    # This means, the lengths of the paths from 'startingNode' to
+    # node i that use at most k edges.
+    # ---------------------------------------------------------------
+
+    while i is less than nodeCount do
+        # For every edge in the graph
+        store 0 in j
+        while j is less than edgeCount do
+            # If the distance from the starting node to the starting node of
+            # this edge plus the weight of this edge...
+            in newDistance solve distances:edgesStart:j + edgesWeight:j
+            # ...is less that the distance of the ending node of this edge...
+            if newDistance is less than distances:edgesEnd:j then
+                #...then this path is shorter, so we'll take it.
+                store newDistance in distances:edgesEnd:j
+            end if
+            in j solve j + 1
+        repeat
+        in i solve i + 1
+    repeat
+
+    # --- Negative cycles ----------------------------------------------
+    # While the algorithm asumes that no negative cycles are to be found
+    # in the graph, we can detect wether the graph has negative cycles
+    # or not by executing the loop above one more time and inspecting
+    # or list of distances. If any of the values there is lower than it
+    # was before running the loop again, this means that there are
+    # negative cycles found within our graph.
+    # ------------------------------------------------------------------
+
+    # Print the result:
+    display "["
+    store 0 in i
+    while i is less than nodeCount do
+        display distances:i
+        in i solve i + 1
+        if i is less than nodeCount then
+            display ", "
+        end if
+    repeat
+    display "]" crlf
+</pre>
+
+<p style="text-align: center"><img src="https://raw.githubusercontent.com/Lartu/ldpl/master/images/tutorial-logo.png"></p>
+</body>
