@@ -39,12 +39,10 @@ a:visited{
 }
 
 #footer-left{
-    background: mediumseagreen; /*mediumseagreen*/
     vertical-align: bottom;
     text-align: center;
     padding: 10px;
     box-sizing: border-box;
-    border-right: 11px solid green; /*green*/
 }
 
 #footer-right{
