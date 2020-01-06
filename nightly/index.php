@@ -11,7 +11,7 @@
 </head>
 
 <body id="text-body">
-    <h2><a href="index.html" id="main-link">LDPL</a> Nightly Builds</h2>
+    <h2><a href="../index.html" id="main-link">LDPL</a> Nightly Builds</h2>
     <hr>
     <p>
     Every day at 22:00 (GMT -3) / 01:00 (GMT +0) the latest available development
