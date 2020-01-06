@@ -16,7 +16,7 @@
     <p>
     Every day at 22:00 (GMT -3) / 01:00 (GMT +0) the latest available development
     version of LDPL is automatically compiled, packaged and uploaded here. If
-    you want to get the newst, cutting edge version of LDPL but you don't
+    you want to get the newest, cutting edge version of LDPL but you don't
     want to build it yourself, you should get a nightly build.
     </p>
         
