@@ -10,6 +10,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
+<style>
+    table{
+        border-collapse: collapse;
+    }
+    td, th{
+        padding: 5px;
+    }
+    th{
+        background-color: lightgray;
+    }
+</style>
+
 <body id="text-body">
     <h2><a href="../index.html" id="main-link">LDPL</a> Nightly Builds</h2>
     <hr>
@@ -25,16 +37,50 @@
     compiled binaries of a <b>development</b> version of LDPL, they may
     contain unknown bugs or stability issues. Use them at your own risk!
     </p>
-    <?php
-    $files = array_diff(scandir("."), array('..', '.', 'index.php'));
-    foreach($files as $file){
-        echo "<a href=\"$file\">$file</a> (";
-        echo ceil(filesize($file) / 1024);
-        echo " KiB)";
-        $date = str_replace("_", "-", explode("-", $file)[2]);
-        $date = explode(".", $date)[0];
-        echo " (built on $date)";
-        echo "<br>";
-    }
-    ?>
+    
+    <table width=100% border=1>
+        <tr>
+            <th>
+                OS
+            </th>
+            <th>
+                Architecture
+            </th>
+            <th>
+                Build Date
+            </th>
+            <th>
+                File Size
+            </th>
+            <th>
+                Download
+            </th>
+        <tr>
+        <?php
+        $files = array_reverse(array_diff(scandir("."),
+                    array('..', '.', 'index.php', '.gitignore')));
+        foreach($files as $file){
+            $tokens = explode("_", $file);
+            $date = str_replace("_", "-", $tokens[0]);
+            $arch_os = explode("-", $tokens[1]);
+            $arch = $arch_os[1];
+            if($arch == "x86") $arch = "x86 (32 bits)";
+            if($arch == "amd64") $arch = "amd64 (64 bits)";
+            $os = ucfirst(explode(".", $arch_os[2])[0]);
+            $size = ceil(filesize($file) / 1024);
+            if($size > 1024){
+                $size = number_format((float)$size, 2, '.', '') . " MiB";
+            }else{
+                $size = $size . " KiB";
+            }
+            echo "<tr>";
+            echo "<td>$os</td>";
+            echo "<td>$arch</td>";
+            echo "<td>$date</td>";
+            echo "<td>$size</td>";
+            echo "<td><a href=\"$file\">$file</a></td>";
+            echo "</tr>";
+        }
+        ?>
+    </table>
 </body>
