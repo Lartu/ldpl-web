@@ -69,7 +69,7 @@
             $os = ucfirst(explode(".", $arch_os[2])[0]);
             $size = ceil(filesize($file) / 1024);
             if($size > 1024){
-                $size = number_format((float)$size, 2, '.', '') . " MiB";
+                $size = number_format((float)($size/1024), 2, '.', '') . " MiB";
             }else{
                 $size = $size . " KiB";
             }
