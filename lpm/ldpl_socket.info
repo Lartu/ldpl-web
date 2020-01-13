@@ -1,8 +1,8 @@
 Package Name: The LDPL Socket Library
 Short Name: ldpl_socket
-Author: dvkt
+Author: Chris West
 Version: 1.0.0
-Website: https://github.com/dvkt/ldpl-socket
+Website: https://github.com/xvxx/ldpl-socket
 Info: The LDPL Socket Library allows you to open, close, write to,
 and read from network sockets in LDPL. It's mostly made for clients -
 if you want to write a server, please see the LDPL Network Server
