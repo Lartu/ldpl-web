@@ -1,9 +1,0 @@
-Package Name: The LDPL IRC Bot Library
-Short Name: ldpl_irc_bot
-Author: Martín del Río
-Version: 1.0.0
-Website: https://github.com/lartu/ldpl-irc-bot
-Info: The LDPL IRC Bot Library is a super easy to use IRC bot library
-for LDPL that let's you write LDPL programs that connect to IRC servers,
-join channels, send messages and react to received messages in the
-simplest way possible.

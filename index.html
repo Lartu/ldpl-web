@@ -1,215 +1,294 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
+
 <head>
+    <meta charset="utf-8" />
+    <title></title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link rev="made" href="mailto:martin@ldpl-lang.org" />
     <link rel="icon" type="image/png" href="graphics/favicon.png" />
     <meta name="DC.title" content="ldpl-lang.org" />
-    <link rel="stylesheet" type="text/css" href="ldpl.css?v=1" />
     <title>The LDPL Programming Language</title>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 
+<style>
+    html {
+        background: url(images/background.png) fixed;
+    }
+
+    body {
+        margin: 0px;
+        border-top: 24px solid rgb(59, 159, 59);
+        border-bottom: 24px solid rgb(59, 159, 59);
+        font-size: 14pt;
+        line-height: 1.4em;
+        font-family: "IM_Fell_DW_Pica_SC", 'Times New Roman', Times, serif;
+    }
+
+    #container {
+        border-top: 24px solid rgb(255, 229, 36);
+        border-top: 24px solid rgb(57, 55, 141);
+        border-bottom: 24px solid rgb(57, 55, 141);
+        box-sizing: border-box;
+        max-width: 900px;
+        padding: 40px 100px;
+        margin: auto;
+        margin-top: -24px;
+        margin-bottom: -24px;
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    h1 {
+        text-align: center;
+        font-weight: normal;
+        font-size: 36pt;
+    }
+
+    h2 {
+        text-align: center;
+        font-family: "Alice", 'Times New Roman', Times, serif;
+        font-style: italic;
+        font-size: 18pt;
+    }
+
+    h3 {
+        font-family: "IM_Fell_DW_Pica_SC", 'Times New Roman', Times, serif;
+        font-size: 18pt;
+        text-transform: uppercase;
+        margin-top: 1em;
+    }
+
+    h4 {
+        font-family: "Alice", 'Times New Roman', Times, serif;
+        font-size: 15pt;
+        margin-top: 1.5em;
+        margin-bottom: 0em;
+        font-weight: bold;
+    }
+
+    h3::first-letter {
+        font-size: 1.5em;
+    }
+
+    @font-face {
+        font-family: "Alice";
+        src: url("fonts/Alice/Alice-Regular.ttf") format('truetype');
+    }
+
+    @font-face {
+        font-family: "IM_Fell_DW_Pica_SC";
+        src: url("fonts/IM_Fell_DW_Pica_SC/IMFellDWPicaSC-Regular.ttf") format('truetype');
+    }
+
+    p,
+    li {
+        font-family: "Alice", 'Times New Roman', Times, serif;
+    }
+
+    .todo {
+        color: violet;
+    }
+
+    .inlinesaur {
+        margin: 2em auto;
+        display: block;
+    }
+
+    .menu {
+        text-align: center;
+    }
+
+    a {
+        color: Crimson;
+    }
+
+    pre {
+        font-family: monospace;
+        font-size: 12pt;
+        padding: 20px;
+        background-color: #fff7f5;
+        border-radius: 10px;
+    }
+
+    code {
+        display: inline-block;
+        padding: 1em;
+        background: rgb(235, 235, 235);
+        border-radius: 10px;
+    }
+</style>
+
 <body>
-<table id="main-table">
-    <tr>
-        <td id="sidebar" rowspan=2>
-            <h1>About LDPL</h1>
-            <ul>
-                <li><a href="philosophy.html">Philosophy and Goals</a></li>
-                <li><a href="examples.html">Code Examples</a></li>
-                <li><a href="news.html">News and Events</a></li>
-                <li><a href="people.html">People</a></li>
-            </ul>
-            
-            <h1>Getting LDPL</h1>
-            <ul>
-                <li><a href="44.html">Stable Release</a></li>
-            </ul>
-            
-            <h1>Getting Source</h1>
-            <ul>
-                <li><a href="https://github.com/lartu/ldpl">GitHub Repository</a></li>
-                <li><a href="contribute.html">Contributing</a></li>
-            </ul>
-            
-            <h1>LDPL Resources</h1>
-            <ul>
-                <li><a href="https://docs.ldpl-lang.org">LDPL Documentation</a></li>
-                <li><a href="libraries.html">Libraries</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="conduct.html">Code of Conduct</a></li>
-                <li><a href="media.html">Artwork and Media</a></li>
-                <li><a href="https://reddit.com/r/ldpl">r/ldpl</a></li>
-                <li><a href="https://freenode.org">IRC (#ldpl@freenode.net)</a></li>
-                <li><a href="https://t.me/ldpllang">Telegram</a></li>
-                <li><a href="https://www.freelists.org/list/ldpl">Mailing List</a></li>
-            </ul>
-            
-            <h1>Supporting LDPL</h1>
-            <ul>
-                <li><a href="wanted.html">Wanted Features</a></li>
-                <li><a href="support.html">Donations and Merch</a></li>
-            </ul>
+    <div id="container">
+        <img class="inlinesaur" src="images/ldpl-4.0-logo.png" alt="LDPL" title="LDPL" />
 
-            <div id="footer-left">
-            <p><img src="graphics/tinysaur.png"></p>
-            <!-- Watch Button -->
-            <a class="github-button" href="https://github.com/lartu/ldpl/subscription"
-            data-icon="octicon-eye" data-size="large" data-show-count="true"
-            aria-label="Watch lartu/ldpl on GitHub" style="margin:0px">Watch</a>
-            <!-- Star Button -->
-            <a class="github-button" href="https://github.com/lartu/ldpl"
-            data-icon="octicon-star" data-size="large" data-show-count="true"
-            aria-label="Star lartu/ldpl on GitHub">Star</a>
-            </div>
-        </td>
-        <td id="mainarea">
-            <img style="max-width: 500px" src="graphics/other/ldpl-4.0-logo.png" alt="The LDPL Programming Language">
-            
-            <p>
-            The LDPL project produces the <b>LDPL Programming Language</b>,
-            a free, powerful, compiled, open-source programming language
-            designed from the ground up to be excessively <b>expressive, readable,
-                fast and easy to learn</b>. LDPL was designed to run on <b>Unix</b> systems,
-            including AMD-64 Linux, macOS, ARMv8 Linux, Android Termux and both
-            Intel and PowerPC OS X (tested from Tiger 10.4 onwards).
-                It even supports <b>UTF-8</b> out of the box.
-            </p>
-            
-            <p>
-                LDPL is freely available from our GitHub repository. 
-            </p>
-            
-            <p>
-                The current release is <a href="44.html">LDPL 4.4 'Friendly Falcarius'</a>, released Dec 2, 2019.
-                <!--<b>LDPL 5</b> will probably be released during the end of March</b>. It will <i>not</i> be compatible with
-                previous LDPL versions, but we are sure this is the right path for the language. LDPL 5 will include
-                new, long anticipated features such as an interpreter, expression support and functions.-->
-            </p>
+        <p class="menu">
+            <a href="#about">About</a>
+            | <a href="#help">Help</a>
+            | <a href="https://github.com/Lartu/LDPL" target="blank">GitHub</a>
+            | <a href="https://github.com/Lartu/LDPL/releases" target="blank">Releases</a>
+            | <a href="https://docs.ldpl-lang.org" target="blank">Docs</a>
+            | <a href="media.html">Art</a>
+        </p>
 
-            <p>
-                A number of editors including <b>Gedit / Pluma</b>, <b>Visual Studio Code</b>, <b>Vim</b>, <b>Atom</b> and <b>GNU Nano</b> have LDPL highlighting and formatting extensions avaiable for them.
-                Read more <a href="https://github.com/Lartu/ldpl#-ldpl-compatible-editors">here</a>.
-            </p>
-            
-            <table style="display: inline;">
-                <tr>
-                <td>
-                    <a href="https://opensource.org/licenses/Apache-2.0" >
-                    <img src="https://opensource.org/trademarks/osi-certified/web/transparent/osi-certified-600x500-t.png" style="max-width: 60px" alt="OSI">
-                    </a>
-                </td>
-                <td>
-                    LDPL is developed entirely by volunteers. It is a non-profit project
-                    mantained by people like you from all over the world. The project's
-                    development environment is funded through contributions collected by
-                    selling LDPL-releated merchandise. Contributions ensure that LDPL
-                    will remain a vibrant and free programming language. 
-                    If you like what we do, please consider
-                    <a href="contribute.html">contributing</a> to the LDPL project or
-                    <a href="support.html">supporting</a> it.
-                </td>
-                </tr>
-            </table>
-            
-            <table>
-                <tbody><tr>
-                    <td>
-                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="60px" height="60px" viewBox="0 0 120.1 130.2" style="enable-background:new 0 0 120.1 130.2;" xml:space="preserve">
-                            <g>
-                                <linearGradient id="XMLID_2_" gradientUnits="userSpaceOnUse" x1="31.8412" y1="120.5578" x2="110.2402" y2="73.24">
-                                    <stop offset="0" style="stop-color:#FCEE39"></stop>
-                                    <stop offset="1" style="stop-color:#F37B3D"></stop>
-                                </linearGradient>
-                                <path id="XMLID_3041_" style="fill:url(#XMLID_2_);" d="M118.6,71.8c0.9-0.8,1.4-1.9,1.5-3.2c0.1-2.6-1.8-4.7-4.4-4.9
-                                    c-1.2-0.1-2.4,0.4-3.3,1.1l0,0l-83.8,45.9c-1.9,0.8-3.6,2.2-4.7,4.1c-2.9,4.8-1.3,11,3.6,13.9c3.4,2,7.5,1.8,10.7-0.2l0,0l0,0
-                                    c0.2-0.2,0.5-0.3,0.7-0.5l78-54.8C117.3,72.9,118.4,72.1,118.6,71.8L118.6,71.8L118.6,71.8z"></path>
-                                <linearGradient id="XMLID_3_" gradientUnits="userSpaceOnUse" x1="48.3607" y1="6.9083" x2="119.9179" y2="69.5546">
-                                    <stop offset="0" style="stop-color:#EF5A6B"></stop>
-                                    <stop offset="0.57" style="stop-color:#F26F4E"></stop>
-                                    <stop offset="1" style="stop-color:#F37B3D"></stop>
-                                </linearGradient>
-                                <path id="XMLID_3049_" style="fill:url(#XMLID_3_);" d="M118.8,65.1L118.8,65.1L55,2.5C53.6,1,51.6,0,49.3,0
-                                    c-4.3,0-7.7,3.5-7.7,7.7v0c0,2.1,0.8,3.9,2.1,5.3l0,0l0,0c0.4,0.4,0.8,0.7,1.2,1l67.4,57.7l0,0c0.8,0.7,1.8,1.2,3,1.3
-                                    c2.6,0.1,4.7-1.8,4.9-4.4C120.2,67.3,119.7,66,118.8,65.1z"></path>
-                                <linearGradient id="XMLID_4_" gradientUnits="userSpaceOnUse" x1="52.9467" y1="63.6407" x2="10.5379" y2="37.1562">
-                                    <stop offset="0" style="stop-color:#7C59A4"></stop>
-                                    <stop offset="0.3852" style="stop-color:#AF4C92"></stop>
-                                    <stop offset="0.7654" style="stop-color:#DC4183"></stop>
-                                    <stop offset="0.957" style="stop-color:#ED3D7D"></stop>
-                                </linearGradient>
-                                <path id="XMLID_3042_" style="fill:url(#XMLID_4_);" d="M57.1,59.5C57,59.5,17.7,28.5,16.9,28l0,0l0,0c-0.6-0.3-1.2-0.6-1.8-0.9
-                                    c-5.8-2.2-12.2,0.8-14.4,6.6c-1.9,5.1,0.2,10.7,4.6,13.4l0,0l0,0C6,47.5,6.6,47.8,7.3,48c0.4,0.2,45.4,18.8,45.4,18.8l0,0
-                                    c1.8,0.8,3.9,0.3,5.1-1.2C59.3,63.7,59,61,57.1,59.5z"></path>
-                                <linearGradient id="XMLID_5_" gradientUnits="userSpaceOnUse" x1="52.1736" y1="3.7019" x2="10.7706" y2="37.8971">
-                                    <stop offset="0" style="stop-color:#EF5A6B"></stop>
-                                    <stop offset="0.364" style="stop-color:#EE4E72"></stop>
-                                    <stop offset="1" style="stop-color:#ED3D7D"></stop>
-                                </linearGradient>
-                                <path id="XMLID_3057_" style="fill:url(#XMLID_5_);" d="M49.3,0c-1.7,0-3.3,0.6-4.6,1.5L4.9,28.3c-0.1,0.1-0.2,0.1-0.2,0.2l-0.1,0
-                                    l0,0c-1.7,1.2-3.1,3-3.9,5.1C-1.5,39.4,1.5,45.9,7.3,48c3.6,1.4,7.5,0.7,10.4-1.4l0,0l0,0c0.7-0.5,1.3-1,1.8-1.6l34.6-31.2l0,0
-                                    c1.8-1.4,3-3.6,3-6.1v0C57.1,3.5,53.6,0,49.3,0z"></path>
-                                <g id="XMLID_3008_">
-                                    <rect id="XMLID_3033_" x="34.6" y="37.4" style="fill:#000000;" width="51" height="51"></rect>
-                                    <rect id="XMLID_3032_" x="39" y="78.8" style="fill:#FFFFFF;" width="19.1" height="3.2"></rect>
-                                    <g id="XMLID_3009_">
-                                        <path id="XMLID_3030_" style="fill:#FFFFFF;" d="M38.8,50.8l1.5-1.4c0.4,0.5,0.8,0.8,1.3,0.8c0.6,0,0.9-0.4,0.9-1.2l0-5.3l2.3,0
-                                            l0,5.3c0,1-0.3,1.8-0.8,2.3c-0.5,0.5-1.3,0.8-2.3,0.8C40.2,52.2,39.4,51.6,38.8,50.8z"></path>
-                                        <path id="XMLID_3028_" style="fill:#FFFFFF;" d="M45.3,43.8l6.7,0v1.9l-4.4,0V47l4,0l0,1.8l-4,0l0,1.3l4.5,0l0,2l-6.7,0
-                                            L45.3,43.8z"></path>
-                                        <path id="XMLID_3026_" style="fill:#FFFFFF;" d="M55,45.8l-2.5,0l0-2l7.3,0l0,2l-2.5,0l0,6.3l-2.3,0L55,45.8z"></path>
-                                        <path id="XMLID_3022_" style="fill:#FFFFFF;" d="M39,54l4.3,0c1,0,1.8,0.3,2.3,0.7c0.3,0.3,0.5,0.8,0.5,1.4v0
-                                            c0,1-0.5,1.5-1.3,1.9c1,0.3,1.6,0.9,1.6,2v0c0,1.4-1.2,2.3-3.1,2.3l-4.3,0L39,54z M43.8,56.6c0-0.5-0.4-0.7-1-0.7l-1.5,0l0,1.5
-                                            l1.4,0C43.4,57.3,43.8,57.1,43.8,56.6L43.8,56.6z M43,59l-1.8,0l0,1.5H43c0.7,0,1.1-0.3,1.1-0.8v0C44.1,59.2,43.7,59,43,59z"></path>
-                                        <path id="XMLID_3019_" style="fill:#FFFFFF;" d="M46.8,54l3.9,0c1.3,0,2.1,0.3,2.7,0.9c0.5,0.5,0.7,1.1,0.7,1.9v0
-                                            c0,1.3-0.7,2.1-1.7,2.6l2,2.9l-2.6,0l-1.7-2.5h-1l0,2.5l-2.3,0L46.8,54z M50.6,58c0.8,0,1.2-0.4,1.2-1v0c0-0.7-0.5-1-1.2-1
-                                            l-1.5,0v2H50.6z"></path>
-                                        <path id="XMLID_3016_" style="fill:#FFFFFF;" d="M56.8,54l2.2,0l3.5,8.4l-2.5,0l-0.6-1.5l-3.2,0l-0.6,1.5l-2.4,0L56.8,54z
-                                             M58.8,59l-0.9-2.3L57,59L58.8,59z"></path>
-                                        <path id="XMLID_3014_" style="fill:#FFFFFF;" d="M62.8,54l2.3,0l0,8.3l-2.3,0L62.8,54z"></path>
-                                        <path id="XMLID_3012_" style="fill:#FFFFFF;" d="M65.7,54l2.1,0l3.4,4.4l0-4.4l2.3,0l0,8.3l-2,0L68,57.8l0,4.6l-2.3,0L65.7,54z"></path>
-                                        <path id="XMLID_3010_" style="fill:#FFFFFF;" d="M73.7,61.1l1.3-1.5c0.8,0.7,1.7,1,2.7,1c0.6,0,1-0.2,1-0.6v0
-                                            c0-0.4-0.3-0.5-1.4-0.8c-1.8-0.4-3.1-0.9-3.1-2.6v0c0-1.5,1.2-2.7,3.2-2.7c1.4,0,2.5,0.4,3.4,1.1l-1.2,1.6
-                                            c-0.8-0.5-1.6-0.8-2.3-0.8c-0.6,0-0.8,0.2-0.8,0.5v0c0,0.4,0.3,0.5,1.4,0.8c1.9,0.4,3.1,1,3.1,2.6v0c0,1.7-1.3,2.7-3.4,2.7
-                                            C76.1,62.5,74.7,62,73.7,61.1z"></path>
-                                    </g>
-                                </g>
-                            </g>
-                        </svg>
-                    </td>
-                    <td>
-                        We would like to thank <a href="https://www.jetbrains.com/?from=LDPL" >JetBrains</a> for kindly granting a number of <i>All Products Pack</i> Open Source Licenses to the LDPL project.
-                    </td>
-                </tr>
-            </tbody></table>
-        </td>
-    </tr>
-    <tr>
-        <td id="footer-right">
-                <small>
-                    <i>The LDPL Programming Language was created by
-                    <a href="https://lartu.net/" >Lartu</a>
-                    in collaboration with <a href="https://github.com/xvxx/"
-                    >Chris West</a>, <a href="https://github.com/dgarroDC"
-                    >Damián Garro</a>, <a href="https://github.com/iglosiggio/"
-                    >Ignacio Losiggio</a> and a bunch of other wonderful
-                    <a href="people.html">contributors</a>.
-                    Source code is distributed under the
-                    <a href="https://github.com/Lartu/ldpl/blob/master/LICENSE">Apache
-                    2.0 License</a>. All LDPL dinosaur logos were created by Lartu and
-                    are released under a <a href="https://creativecommons.org/licenses/by/4.0/"
-                    >Creative Commons Attribution 4.0 International (CC BY 4.0)
-                    license</a>.
-                    Copyright 2018-2020, Lartu.
-                    The design of this website has been heavily inspired by
-                    <a href="https://www.openbsd.org/" >OpenBSD.org</a>.
-                    The source code for this website can be found
-                    <a href="https://github.com/Lartu/ldpl-web/" >here</a>.
-                </small>
-            </i>
-        <td>
-    </tr>
-</table>
+        <!-- Section -->
+        <h3 id="about">About</h3>
+        <p>
+            LDPL is a powerful and robust general-purpose compiled programming language designed from the ground up
+            to be excessively
+            <b>expressive</b>, <b>readable</b>, <b>fast</b>, and <b>easy to learn</b>. It mimics plain English, in the
+            likeness of the good parts of
+            older programming languages like COBOL. It even supports UTF-8 out of the box.
+        </p>
+
+        <center><img style="max-width: 90%; max-height: 300px; margin-bottom: -1em;" src="images/code.png"
+                alt="Code Example" title="Code Example" /></center>
+
+        <p>
+            LDPL is now considered <b>complete</b> and in <a
+                href="https://tratt.net/laurie/blog/2023/how_big_should_a_programming_language_be.html"
+                target=_blank>minimal evolution mode</a>. This means
+            that language is supported, but its specification will intentionally be kept as unchanged as possible.
+        </p>
+
+        <p>LDPL is freely available on our <a href="https://github.com/Lartu/LDPL" target="blank">GitHub repository</a>.
+        </p>
+
+        <h4>LDPL Philosophy</h4>
+
+        <p>
+            LDPL is a language designed to be easy to understand and learn, and simple to write and use. We believe that
+            coding should be like that. Compiling code should be effortless and straightforward: a single, flagless
+            command
+            should be enough to compile any source. Every statement in the language should do one and only one thing,
+            not
+            depending on the context. The compiler should deal with complex, low-level stuff like encoding, sockets,
+            floating-point number comparison, etc., transparently to the user. Hard stuff shouldn't be.
+        </p>
+        <p>
+            We understand that this philosophy may lead to longer source code, more verbose statements, and extra steps
+            to
+            reach an end, but it should make coding in LDPL easier and more enjoyable than in other languages.
+        </p>
+        <p>
+            As one user once put it:
+        </p>
+        <p>
+            <span style="color: grey"><i>
+                    "Usually when I'm programming, I feel like I'm in a big fancy jet and there's a lot of turbulence
+                    and
+                    it's not going well but then all of a sudden it's smooth air again and the drink cart comes along
+                    and I
+                    get a ginger ale and it's great. But with LDPL, I feel like I'm a cub scout out in the woods with a
+                    box
+                    of matches and a hatchet and my Scout's Handbook (the LDPL Docs) just exploring and figuring it out
+                    as I
+                    go. Whenever I run into a problem I just check my handbook and, sure enough, there's a solution
+                    right
+                    there waiting for me!"
+                </i></span>
+        </p>
+
+        <p>
+            We want to make LDPL a language you'll love not because it lets you do many things in one line or because of
+            how
+            modern it is: but because it's designed to stay by your side and tell you everything's is going to be okay
+            even
+            when things look rough.
+        </p>
+
+
+        <img class="inlinesaur" src="graphics/other/tutorial-logo.png" />
+
+        <h3 id="help">Installation & Usage <i style="font-size: 1.2rem; color:grey">(<span
+                    style="font-size: 0.8rem">AKA</span> Help)</i></h3>
+        <p>
+            For information on how to instale and use the LDPL compiler, please check the <a
+                href="https://github.com/Lartu/LDPL" target="blank">GitHub repository</a>.
+            We've taken a lot of care to make it as accessible as possible.
+        </p>
+        <p>
+            The preferred way to install LDPL is to build it yourself. We promise this is really easy. We've
+            made it as easy as we can.
+        </p>
+
+        <p>
+            However, if you are using <b>Homebrew</b>, you might install LDPL by running:
+        </p>
+
+        <code>brew install ldpl</code>
+
+        <p>
+            On <b>Snap</b>, you'll want to try:
+        </p>
+
+        <code>snap install ldpl-lang</code>
+
+        <h4>Learning LDPL</h4>
+
+        <p>
+            If you want to learn how to code in LDPL, there's <a href="https://learnxinyminutes.com/docs/ldpl/"
+                target="_blank">Learn LDPL in X Minutes</a>, a very short and concise tutorial.
+        </p>
+
+        <p>
+            The full LDPL documentation is available <a href="https://docs.ldpl-lang.org" target="blank"> here</a>.
+            If you've downloaded the LDPL repository, it's also available there. If you've built and installed LDPL
+            yourself, you might also want to try:
+        </p>
+
+        <code>man ldpl</code>
+
+        <p>
+            If you want learning by looking at <b>examples</b>, you'll find some examples <a
+                href="examples.html">here</a>.
+            Please bear in mind that some of these examples might be a tad old and might need some changes to work
+            with an up-to-date version of LDPL.
+        </p>
+
+        <h4>Libraries</h4>
+
+        <p>
+            Like most programming languages, LDPL leverages several first and third-party libraries. Nearly all of these
+            libraries exist as a .ldpl file, a group of .ldpl files, or a group of .ldpl and C++ files.
+            You may find libraries on GitHub by searching "<a href="https://github.com/search?q=ldpl"
+                target=_blank>LDPL</a>" in the search box.
+        </p>
+
+        <p>
+            The usage of libraries is <a href="https://docs.ldpl-lang.org/structure/#including-more-source-files"
+                target="_blank">covered</a> in the LDPL Documentation.
+        </p>
+
+        <img class="inlinesaur" src="graphics/other/reference-logo.png" />
+
+        <h3>
+            License
+        </h3>
+
+        <p>
+            The LDPL Programming Language was created by Lartu in collaboration with Chris West, Damián Garro, Ignacio
+            Losiggio
+            and a bunch of other wonderful contributors. Source code for the LDPL Compiler is distributed under the
+            Apache 2.0 License.
+        </p>
+
+        <p>
+            All the LDPL Dinosaur logos and related art were drawn by <a href="https://lartu.net"
+                target="_blank">Lartu</a> and
+            are released under a Creative Commons Attribution 4.0 International (CC BY 4.0) license.
+        </p>
+
+        <p>
+            The source code for this website can be found <a href="https://github.com/Lartu/ldpl-web/"
+                target="_blank">here</a>.
+        </p>
+
+        <p style="text-align: center; font-size: 0.8em; color:grey; margin-bottom: 0px; margin-top: 30px;">
+            &lt;3
+        </p>
+    </div>
 </body>
+
 </html>

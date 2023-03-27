@@ -1,7 +1,0 @@
-Package Name: LDPL URL Resolver Library
-Short Name: ldpl-url-resolver
-Author: Martín del Río
-Upload Date: Dic 15, 2019
-Website: https://github.com/Lartu/ldpl-url-resolver
-Info: The LDPL URL Resolver Library is a super easy to use library for LDPL
-that helps you resolve URLs into their respective IP addresses.

@@ -1,7 +1,0 @@
-Package Name: Text Briefcase from the LDPL Standard Library
-Short Name: std-random
-Author: Martín del Río
-Version: 1.0.0
-Website: https://github.com/Lartu/ldpl-std
-Info: This library includes statements designed for working with
-text values. Part of the LDPL Standard Library.

@@ -1,8 +1,0 @@
-Package Name: Random Briefcase from the LDPL Standard Library
-Short Name: std-random
-Author: Martín del Río
-Version: 1.0.0
-Website: https://github.com/Lartu/ldpl-std
-Info: This library includes random number generation statements
-and a number of other random utilities. Part of the LDPL Standard
-Library.
